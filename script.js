@@ -43,3 +43,19 @@ function loadImages() {
         addImageToScrapbook(src);
     });
 }
+function addImageToScrapbook(src) {
+    const rotation = `${Math.random() * 30 - 15}deg`;
+    const imgContainer = document.createElement('div');
+    imgContainer.classList.add('image-container');
+    imgContainer.style.setProperty('--rotation', rotation);
+
+    const img = document.createElement('img');
+    img.src = src;
+
+    const pin = document.createElement('div');
+    pin.classList.add('pin');
+
+    imgContainer.appendChild(pin);
+    imgContainer.appendChild(img);
+    document.getElementById('scrapbook').appendChild(imgContainer);
+}
